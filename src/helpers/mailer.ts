@@ -1,6 +1,6 @@
-import Error from "next/error";
+// import Error from "next/error";
 import nodemailer from "nodemailer"
-import User from "@/models/user.model";
+import User from "@/models/userModel";
 import bcryptjs from "bcryptjs"
 
 
@@ -22,7 +22,7 @@ export const sendEmail = async({email, emailType, userId}:any) => {
           await User.findByIdAndUpdate(userId,
             {
               forgotPasswordToken : hashedToken,
-              forgotPasswordExpiry : Date.now() + 3600000
+              forgotPasswordTokenExpiry : Date.now() + 3600000
             }
           )
         }

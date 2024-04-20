@@ -1,5 +1,5 @@
 import { connect } from '@/dbConfig/dbConfig';
-import User from '@/models/user.model'
+import User from '@/models/userModel'
 import { NextRequest,NextResponse } from 'next/server'
 import bcryptjs from 'bcryptjs'
 import { sendEmail } from '@/helpers/mailer';
@@ -33,7 +33,7 @@ export async function POST(request : NextRequest) {
             password : hashedPassword
         }).save()*/ //you do directlly or in this method also
 
-        const newUser = new User({
+       const newUser = new User({
             username,
             email,
             password : hashedPassword
