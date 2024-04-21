@@ -35,7 +35,7 @@ export async function POST(request : NextRequest) {
             )
         }
 
-        const tokenData = {
+        const tokenData = { //here we can add also typesaftery interface
             id : user._id,
             email : user.email,
             username : user.username
@@ -44,7 +44,7 @@ export async function POST(request : NextRequest) {
 
         const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!,{ expiresIn : '1d'})
 
-        const response = NextResponse.json({
+        const response = NextResponse.json({  ////here we can add also typesaftery interface
             message : "Logged in Success",
             success : true
         })
@@ -62,3 +62,27 @@ export async function POST(request : NextRequest) {
     }
 
 }
+
+// if we desgined interface for tokendata,and destruction code of reqbody of email and password and 
+// and for respornce also , these are like this
+
+/*
+
+    interface LoginRequestBody {
+        email: string;
+        password: string;
+    }
+
+    interface TokenData {
+        id: string;
+        email: string;
+        username: string;
+    }
+
+    interface LoginResponse {
+        message: string;
+        success: boolean;
+    }
+
+
+*/
