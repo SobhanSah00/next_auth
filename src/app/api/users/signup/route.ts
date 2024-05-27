@@ -19,7 +19,10 @@ export async function POST(request : NextRequest) {
         const user = await User.findOne({email})
 
         if(user) {
-            return NextResponse.json({error : "user already exist"},{status : 400})
+            return NextResponse.json(
+                {error : "user already exist"},
+                {status : 400}
+            )
         }
 
         //if user is new
@@ -33,7 +36,7 @@ export async function POST(request : NextRequest) {
             password : hashedPassword
         }).save()*/ //you do directlly or in this method also
 
-       const newUser = new User({
+       const   newUser = new User({
             username,
             email,
             password : hashedPassword

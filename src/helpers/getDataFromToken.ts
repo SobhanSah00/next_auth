@@ -1,6 +1,5 @@
 import { NextRequest } from "next/server";
 import jwt from "jsonwebtoken"
-import {request} from "http"
 
 export const getDataFromToken = (request : NextRequest) => {
 
@@ -14,7 +13,6 @@ export const getDataFromToken = (request : NextRequest) => {
 
         interface DecodedToken {
             id: string; // Assuming the ID is a string
-            // Add other properties here if your token contains additional data
         }
 
         */

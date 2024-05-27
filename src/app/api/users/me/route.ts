@@ -15,7 +15,7 @@ export async function POST(request : NextRequest) {
 
         const user = await User.findOne({_id : userId}).select("-password")
 
-        //check fi there is no user
+        //check if there is no user
 
         return NextResponse.json({
             message : "user found",
@@ -23,7 +23,9 @@ export async function POST(request : NextRequest) {
         })
 
     } catch(error : any) {
-
+        return NextResponse.json({
+            message : error.message
+        })
     }
 
 }
