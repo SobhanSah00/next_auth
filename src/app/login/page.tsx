@@ -12,7 +12,6 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
 export default function LoginPage() {
   const router = useRouter();
 
- 
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -40,7 +39,7 @@ export default function LoginPage() {
 
       setLoading(false);
       setButtonDisabled(false);
-    } catch (error : any) {
+    } catch (error: any) {
       console.log('Login failed', error);
       toast.error(error.message);
     }
@@ -48,7 +47,7 @@ export default function LoginPage() {
 
   // Effect to enable/disable signup button based on form input
   useEffect(() => {
-    if (user.email.length > 0 && user.password.length > 0 ) {
+    if (user.email.length > 0 && user.password.length > 0) {
       setButtonDisabled(false);
     } else {
       setButtonDisabled(true);
@@ -90,14 +89,13 @@ export default function LoginPage() {
               type="button"
               onClick={togglePasswordVisibility}
               className="absolute right-0 mr-4 focus:outline-none"
-              >
+            >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
           </div>
         </div>
         <button
-          onClick={
-            onLogin}
+          onClick={onLogin}
           disabled={buttonDisabled || loading}
           className={`w-full p-2 bg-blue-500 text-white font-bold rounded-lg focus:outline-none ${
             buttonDisabled || loading ? 'opacity-50 cursor-not-allowed' : ''
@@ -107,7 +105,7 @@ export default function LoginPage() {
         </button>
       </form>
       <p className="mt-4">
-        Don't have an account?{' '}
+        Don&apos;t have an account?{' '}
         <Link href="/signup" className="text-blue-500 hover:underline">
           Sign up
         </Link>
